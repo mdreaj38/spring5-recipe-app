@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body>
-    <h2 th:text="'My Recipee'"></h2>
+<h2 th:text="'My Recipee'"></h2>
+<table>
+    <tr th:each="recipee: ${recipees}">
+        <td th:text="${recipee.id}"></td>
+        <td th:text="${recipee.description}"></td>
+    </tr>
+</table>
 </body>
 </html>

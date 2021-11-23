@@ -15,12 +15,15 @@ public class Recipee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Lob
     private String description;
-    private String prepTime;
-    private String cookTime;
+    private int prepTime;
+    private int cookTime;
     private int servings;
     private String source;
     private String url;
+
+    @Lob
     private String direction;
 
     @Lob
@@ -57,19 +60,19 @@ public class Recipee {
         this.description = description;
     }
 
-    public String getPrepTime() {
+    public int getPrepTime() {
         return prepTime;
     }
 
-    public void setPrepTime(String prepTime) {
+    public void setPrepTime(int prepTime) {
         this.prepTime = prepTime;
     }
 
-    public String getCookTime() {
+    public int getCookTime() {
         return cookTime;
     }
 
-    public void setCookTime(String cookTime) {
+    public void setCookTime(int cookTime) {
         this.cookTime = cookTime;
     }
 

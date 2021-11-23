@@ -14,14 +14,26 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Lob
     private String description;
     private BigDecimal amount;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    private UnitOfMeasure unitOfMeasure;
 
     @ManyToOne
     private Recipee recipee;
 
-    @OneToOne(fetch = FetchType.EAGER)
-    private UnitOfMeasure unitOfMeasure;
+    public Ingredient() {
+    }
+
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recipee recipee) {
+        this.description = description;
+        this.amount = amount;
+        this.unitOfMeasure = unitOfMeasure;
+        this.recipee = recipee;
+    }
+
 
     public Long getId() {
         return id;
