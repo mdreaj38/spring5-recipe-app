@@ -11,6 +11,7 @@ import java.util.Set;
  * @since 11/22/21
  */
 @Data
+@EqualsAndHashCode(exclude = {"recipees"})
 @Entity
 public class Category {
 

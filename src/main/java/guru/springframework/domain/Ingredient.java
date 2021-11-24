@@ -1,6 +1,7 @@
 package guru.springframework.domain;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
  * @since 11/22/21
  */
 @Data
+@EqualsAndHashCode(exclude = "recipee")
 @Entity
 public class Ingredient {
 
