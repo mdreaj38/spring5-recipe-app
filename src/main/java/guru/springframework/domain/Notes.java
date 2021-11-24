@@ -19,7 +19,7 @@ public class Notes {
     private Long id;
 
     @OneToOne
-    private Recipee recipee;
+    private Recipe recipee;
 
     @Lob
     private String recipeeNotes;
@@ -30,5 +30,4 @@ public class Notes {
     protected boolean canEqual(final Object other) {
         return other instanceof Notes;
     }
-
 }

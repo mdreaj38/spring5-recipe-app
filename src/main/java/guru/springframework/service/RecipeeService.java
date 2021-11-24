@@ -1,7 +1,6 @@
 package guru.springframework.service;
 
-import guru.springframework.domain.Recipee;
-import org.springframework.stereotype.Service;
+import guru.springframework.domain.Recipe;
 
 import java.util.Set;
 
@@ -10,5 +9,6 @@ import java.util.Set;
  * @since 11/23/21
  */
 public interface RecipeeService {
-    Set<Recipee> getRecipees();
+    Set<Recipe> getRecipees();
+    Recipe findById(Long id);
 }

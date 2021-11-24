@@ -1,6 +1,7 @@
 package guru.springframework.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,8 +12,9 @@ import java.util.Set;
  * @since 11/22/21
  */
 @Data
+@NoArgsConstructor
 @Entity
-public class Recipee {
+public class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -52,7 +54,7 @@ public class Recipee {
         notes.setRecipee(this);
     }
 
-    public Recipee addIngredient(Ingredient ingredient) {
+    public Recipe addIngredient(Ingredient ingredient) {
         this.ingredients.add(ingredient);
         ingredient.setRecipee(this);
         return this;

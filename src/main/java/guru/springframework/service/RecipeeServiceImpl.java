@@ -1,11 +1,12 @@
 package guru.springframework.service;
 
-import guru.springframework.domain.Recipee;
+import guru.springframework.domain.Recipe;
 import guru.springframework.repositories.RecipeeRepositoriy;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -23,10 +24,17 @@ public class RecipeeServiceImpl implements RecipeeService {
     }
 
     @Override
-    public Set<Recipee> getRecipees() {
+    public Set<Recipe> getRecipees() {
         log.debug("Inside Service");
-        Set<Recipee> recipees = new HashSet<>();
+        Set<Recipe> recipees = new HashSet<>();
         recipeeRepositoriy.findAll().iterator().forEachRemaining(recipees::add);
         return recipees;
+    }
+    public Recipe findById(Long id){
+        Optional<Recipe> recipeeOptional = recipeeRepositoriy.findById(id);
+        if(!recipeeOptional.isPresent()){
+            throw new RuntimeException("REcipee not found");
+        }
+        return recipeeOptional.get();
     }
 }

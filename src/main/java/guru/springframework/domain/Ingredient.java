@@ -2,6 +2,7 @@ package guru.springframework.domain;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
  */
 @Data
 @EqualsAndHashCode(exclude = "recipee")
+@NoArgsConstructor
 @Entity
 public class Ingredient {
 
@@ -27,10 +29,7 @@ public class Ingredient {
     private UnitOfMeasure unitOfMeasure;
 
     @ManyToOne
-    private Recipee recipee;
-
-    public Ingredient() {
-    }
+    private Recipe recipee;
 
     public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure) {
         this.description = description;
