@@ -1,5 +1,7 @@
 package guru.springframework.domain;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 
@@ -7,6 +9,7 @@ import java.math.BigDecimal;
  * @author rejaul.reaj
  * @since 11/22/21
  */
+@Data
 @Entity
 public class Ingredient {
 
@@ -27,43 +30,9 @@ public class Ingredient {
     public Ingredient() {
     }
 
-    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recipee recipee) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure) {
         this.description = description;
         this.amount = amount;
         this.unitOfMeasure = unitOfMeasure;
-        this.recipee = recipee;
-    }
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public Recipee getRecipee() {
-        return recipee;
-    }
-
-    public void setRecipee(Recipee recipee) {
-        this.recipee = recipee;
     }
 }

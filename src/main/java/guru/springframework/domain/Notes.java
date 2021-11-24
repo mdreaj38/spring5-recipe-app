@@ -1,11 +1,15 @@
 package guru.springframework.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 /**
  * @author rejaul.reaj
  * @since 11/22/21
  */
+
+@Data
 @Entity
 public class Notes {
 
@@ -15,30 +19,15 @@ public class Notes {
 
     @OneToOne
     private Recipee recipee;
+
     @Lob
     private String recipeeNotes;
 
-    public Long getId() {
-        return id;
+    public Notes() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    protected boolean canEqual(final Object other) {
+        return other instanceof Notes;
     }
 
-    public Recipee getRecipee() {
-        return recipee;
-    }
-
-    public void setRecipee(Recipee recipee) {
-        this.recipee = recipee;
-    }
-
-    public String getRecipeeNotes() {
-        return recipeeNotes;
-    }
-
-    public void setRecipeeNotes(String recipeeNotes) {
-        this.recipeeNotes = recipeeNotes;
-    }
 }
